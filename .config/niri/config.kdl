@@ -1,0 +1,503 @@
+// --#*Startup program*#--
+
+    spawn-at-startup "xwayland-satellite"
+// --#*Input keyboard*#--
+
+input {
+
+    focus-follows-mouse
+    
+    keyboard {
+        xkb {
+            // You can set rules, model, layout, variant and options.
+            // For more information, see xkeyboard-config(7).
+
+            // For example:
+            // layout "us,ru"
+            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+        }
+    }
+
+    // --#*Touchpad*#-- (include libinput settings)
+
+    touchpad {
+        // off
+        tap
+        // dwt
+        // dwtp
+        // drag-lock
+        natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+    }
+
+    // --#*Mouse setting*#--
+    
+    mouse {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "no-scroll"
+    }
+    
+    // --#*Trackpoint*#-- (a small mouse button on keyboard)
+
+    /-trackpoint {
+        // off
+        // natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // middle-emulation
+    }
+
+}
+
+    // --#*Output screen*#--
+
+    // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
+
+output "eDP-1" {
+
+    mode "1920x1080@60.0"
+
+    // You can use integer or fractional scale, for example use 1.5 for 150% scale.
+    scale 1
+
+    // Transform allows to rotate the output counter-clockwise, valid values are:
+    // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
+    transform "normal"
+
+    position x=0 y=0
+}
+
+output "HDMI-A-1" {
+    // off
+    mode "1920x1080@60.0"
+    scale 1
+
+    // for portrait mode
+    // transform "90"
+
+    position x=0 y=0
+
+}
+
+    // --#*Layout*#--
+    
+layout {
+    // Set gaps around windows in logical pixels.
+    gaps 8
+
+
+    center-focused-column "never"
+
+    preset-column-widths {
+
+
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+
+        // Fixed sets the width in logical pixels exactly.
+        // fixed 1920
+    }
+
+    default-column-width { proportion 0.5; }
+
+
+    focus-ring {
+
+        
+        // Uncomment this line to disable the focus ring.
+        off
+
+        // How many logical pixels the ring extends out from the windows.
+        width 4
+
+        // Colors can be set in a variety of ways:
+        // - CSS named colors: "red"
+        // - RGB hex: "#rgb", "#rgba", "#rrggbb", "#rrggbbaa"
+        // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
+
+        // Color of the ring on the active monitor.
+        active-color "#eeeeee"
+
+        // Color of the ring on inactive monitors.
+        inactive-color "#505050"
+
+    }
+
+    // You can also add a border. It's similar to the focus ring, but always visible.
+    
+    border {
+        // The settings are the same as for the focus ring.
+        // If you enable the border, you probably want to disable the focus ring.
+        off
+
+        width 4
+        active-color "#ffc87f"
+        inactive-color "#505050"
+
+        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+    }
+
+    
+    shadow {
+        // Uncomment the next line to enable shadows.
+        // on
+
+
+        // You can change how shadows look. The values below are in logical
+        // pixels and match the CSS box-shadow properties.
+
+        // Softness controls the shadow blur radius.
+        softness 30
+
+        // Spread expands the shadow.
+        spread 5
+
+        // Offset moves the shadow relative to the window.
+        offset x=0 y=5
+
+        // You can also change the shadow color and opacity.
+        color "#0007"
+    }
+
+    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
+    // You can think of them as a kind of outer gaps. They are set in logical pixels.
+    // Left and right struts will cause the next window to the side to always be visible.
+    // Top and bottom struts will simply add outer gaps in addition to the area occupied by
+    // layer-shell panels and regular gaps.
+    
+    struts {
+        // left 64
+        // right 64
+        // top 64
+        // bottom 64
+    }
+}
+
+    // --#*Screenshot path*#--
+
+    // You can also set this to null to disable saving screenshots to disk.
+    // Example: "screenshot-path null"
+
+    screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+    // --#*Animation settings*#--
+
+animations {
+    // Uncomment to turn off all animations.
+    // off
+
+    slowdown 2.0
+    window-open {
+      duration-ms 200
+      curve "linear"
+      custom-shader r"
+    
+    vec4 expanding_circle(vec3 coords_geo, vec3 size_geo) {
+    vec3 coords_tex = niri_geo_to_tex * coords_geo;
+    vec4 color = texture2D(niri_tex, coords_tex.st);
+    vec2 coords = (coords_geo.xy - vec2(0.5, 0.5)) * size_geo.xy * 2.0;
+    coords = coords / length(size_geo.xy);
+    float p = niri_clamped_progress;
+    if (p * p <= dot(coords, coords))
+    color = vec4(0.0);
+
+    return color;
+  }
+
+    vec4 open_color(vec3 coords_geo, vec3 size_geo) {
+    return expanding_circle(coords_geo, size_geo);
+   }
+  "
+ }
+
+   window-close {
+      duration-ms 250
+      curve "linear"
+      custom-shader r"
+
+    vec4 fall_and_rotate(vec3 coords_geo, vec3 size_geo) {
+    float progress = niri_clamped_progress * niri_clamped_progress;
+    vec2 coords = (coords_geo.xy - vec2(0.5, 1.0)) * size_geo.xy;
+    coords.y -= progress * 1440.0;
+    float random = (niri_random_seed - 0.5) / 2.0;
+    random = sign(random) - random;
+    float max_angle = 0.5 * random;
+    float angle = progress * max_angle;
+    mat2 rotate = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+    coords = rotate * coords;
+    coords_geo = vec3(coords / size_geo.xy + vec2(0.5, 1.0), 1.0);
+    vec3 coords_tex = niri_geo_to_tex * coords_geo;
+    vec4 color = texture2D(niri_tex, coords_tex.st);
+
+    return color;
+  }
+
+    vec4 close_color(vec3 coords_geo, vec3 size_geo) {
+    return fall_and_rotate(coords_geo, size_geo);
+     }
+    "
+   }
+
+
+    // Slow down all animations by this factor. Values below 1 speed them up instead.
+    // slowdown 3.0
+}
+
+    // --#*Window rule*#--
+
+
+window-rule {
+    
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+    // Firefox
+
+window-rule {
+
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+
+}
+
+    // For secrets app (not want to screen-capture)
+    
+/-window-rule {
+
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    block-out-from "screen-capture"
+
+}
+
+    // Example: enable rounded corners for all windows.
+
+window-rule {
+    geometry-corner-radius 0
+}
+
+    // Set open-maximized to true for all windows.
+
+window-rule {
+    open-maximized true
+    // opacity 0.95    
+    // match is-active=false
+}
+
+    // --#*Key bindings*#--
+
+binds {
+    // Sound controller
+    // The allow-when-locked=true property makes them work even when the session is locked.
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "pamixer" "--increase" "5"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "pamixer" "--decrease" "5"; }
+    XF86AudioMute        allow-when-locked=true { spawn "pamixer" "--toggle-mute"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "pamixer" "--default-source" "--toggle-mute"; }
+
+    // Brightness controller
+    XF86MonBrightnessUp allow-when-locked=true {spawn "~/.config/niri/dunstscripts/brightness" "up"; }
+    XF86MonBrightnessDown allow-when-locked=true {spawn "~/.config/niri/dunstscripts/brightness" "down"; }
+
+    // Music controller
+    Mod+Shift+P allow-when-locked=true { spawn "bash" "-c" "exec ~/.config/niri/scripts/musiccontroller.sh"; }
+    Mod+Shift+N allow-when-locked=true { spawn "playerctl" "next"; }
+    Mod+Shift+B allow-when-locked=true { spawn "playerctl" "previous"; }
+    
+    // Execute a shell scripts
+    Mod+Alt+R { spawn "~/.config/niri/scripts/waybarswww.sh"; }
+
+    // Power-menu (if doesn't work just spam E keys while holding Mod+Shift)
+    Mod+Shift+E { spawn "~/.config/niri/scripts/wlogout.sh"; }
+
+    // Lockscreen
+    Mod+L { spawn "~/.config/niri/scripts/gtklock.sh"; }
+
+    // Suspend keys
+    Mod+Shift+L { spawn "~/.config/niri/scripts/suspendservice.sh"; }
+
+    // Keybinds of app
+    Mod+E { spawn "nautilus"; }
+    Mod+Alt+Slash { spawn "fuzzel"; }
+    Mod+Return { spawn "kitty"; }
+
+    // Clipboard and emojis
+    Mod+Period { spawn "bash" "-c" "pkill fuzzel || ~/.config/fuzzel/scripts/fuzzel-emoji"; }
+    Mod+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu | cliphist decode | wl-copy"; }
+    Mod+Shift+V { spawn "bash" "-c" "pkill fuzzel || cliphist list | fuzzel  --match-mode fzf --dmenu | cliphist delete"; }
+
+    // Window manager logic
+    
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-workspace-down; }
+    Mod+Up    { focus-workspace-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Down { move-column-to-workspace-down; }
+    Mod+Shift+Up   { move-column-to-workspace-up; }
+
+    Mod+Ctrl+Left { focus-column-first; }
+    Mod+Ctrl+Right  { focus-column-last; }
+    Mod+Shift+Ctrl+Left { move-column-to-first; }
+    Mod+Shift+Ctrl+Right  { move-column-to-last; }
+
+    Mod+Ctrl+Alt+Down { move-workspace-down; }
+    Mod+Ctrl+Alt+Up  { move-workspace-up; }
+
+    Mod+Tab { focus-workspace-previous; }
+
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+C { center-column; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    Mod+Alt+Left  { consume-or-expel-window-left; }
+    Mod+Alt+Right { consume-or-expel-window-right; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // Function binds
+
+    Mod+Alt+P { power-off-monitors; }
+    Mod+Q { close-window; }
+
+    // Float and tilling window
+
+    Mod+Alt+Space { toggle-window-floating; }
+    Alt+Space { switch-focus-between-floating-and-tiling; }
+
+    // Screenshot
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+
+    // Mouse binds
+
+    Mod+Alt+WheelScrollUp            cooldown-ms=100   { spawn "~/.config/niri/dunstscripts/volume" "up"; }
+    Mod+Alt+WheelScrollDown          cooldown-ms=100   { spawn "~/.config/niri/dunstscripts/volume" "down"; }
+    Mod+Shift+Alt+WheelScrollUp      cooldown-ms=100   { spawn "~/.config/niri/dunstscripts/brightness" "up"; }
+    Mod+Shift+Alt+WheelScrollDown    cooldown-ms=100   { spawn "~/.config/niri/dunstscripts/brightness" "down"; }
+
+    Mod+Ctrl+WheelScrollDown         cooldown-ms=150   { focus-workspace-down; }
+    Mod+Ctrl+WheelScrollUp           cooldown-ms=150   { focus-workspace-up; }
+    Mod+Ctrl+MouseLeft               cooldown-ms=150   { focus-column-left; }
+    Mod+Ctrl+MouseRight              cooldown-ms=150   { focus-column-right; }
+
+    Mod+Ctrl+Shift+MouseLeft         cooldown-ms=150   { move-column-left; }
+    Mod+Ctrl+Shift+MouseRight        cooldown-ms=150   { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollDown   cooldown-ms=150   { move-column-to-workspace-down; }
+    Mod+Ctrl+Shift+WheelScrollUp     cooldown-ms=150   { move-column-to-workspace-up; }
+
+
+    // Touchpad binds
+
+    Mod+Alt+TouchpadScrollDown        cooldown-ms=100  { spawn "~/.config/niri/dunstscripts/volume" "up"; }
+    Mod+Alt+TouchpadScrollUp          cooldown-ms=100  { spawn "~/.config/niri/dunstscripts/volume" "down"; }
+    Mod+Ctrl+TouchpadScrollDown       cooldown-ms=100  { spawn "~/.config/niri/dunstscripts/brightness" "up"; }
+    Mod+Ctrl+TouchpadScrollUp         cooldown-ms=100  { spawn "~/.config/niri/dunstscripts/brightness" "down"; }
+
+    Mod+TouchpadScrollDown            cooldown-ms=150   { focus-workspace-down; }
+    Mod+TouchpadScrollUp              cooldown-ms=150   { focus-workspace-up; }
+    Mod+TouchpadScrollLeft            cooldown-ms=150   { focus-column-left; }
+    Mod+TouchpadScrollRight           cooldown-ms=150   { focus-column-right; }
+
+    Mod+Shift+TouchpadScrollLeft      cooldown-ms=150   { move-column-left; }
+    Mod+Shift+TouchpadScrollRight     cooldown-ms=150   { move-column-right; }
+    Mod+Shift+TouchpadScrollDown      cooldown-ms=150   { move-column-to-workspace-down; }
+    Mod+Shift+TouchpadScrollUp        cooldown-ms=150   { move-column-to-workspace-up; }
+
+
+    // Some binds i don't use
+
+
+    // Mod+Shift+Left  { focus-monitor-left; }
+    // Mod+Shift+Down  { focus-monitor-down; }
+    // Mod+Shift+Up    { focus-monitor-up; }
+    // Mod+Shift+Right { focus-monitor-right; }
+    // Mod+Shift+H     { focus-monitor-left; }
+    // Mod+Shift+J     { focus-monitor-down; }
+    // Mod+Shift+K     { focus-monitor-up; }
+    // Mod+Shift+L     { focus-monitor-right; }
+
+    // Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    // Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    // Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    // Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+
+
+    // Alternatively, there are commands to move just a single window:
+    // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+    // ...
+
+    // And you can also move a whole workspace to another monitor:
+    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    // ...
+
+}
+
+    // --#*Environment variable*#--
+
+/-environment {
+    QT_QPA_PLATFORM "wayland"
+    QT_IM_MODULE "fcitx"
+    XMODIFIERS "@im=fcitx"
+    // GTK_IM_MODULE "wayland"   # Crashes electron apps in xwayland
+    // GTK_IM_MODULE "fcitx"     # My Gtk apps no longer require this to work with fcitx5 hmm  
+    SDL_IM_MODULE "fcitx"
+    GLFW_IM_MODULE "ibus"
+    INPUT_METHOD "fcitx"
+    DISPLAY ":0"
+    QT_QPA_PLATFORM "xcb"
+}
+
+    // --#*Skip a keybinds board at startup*#--
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+    // --#*Switch events*#--
+
+    switch-events {
+    lid-open { spawn "~/.config/niri/scripts/gtklock.sh"; }
+    tablet-mode-on { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
+    tablet-mode-off { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
+}

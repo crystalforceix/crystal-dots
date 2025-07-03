@@ -1,0 +1,21 @@
+# crystal-themes-fonts
+
+# Maintainer: crystalforceix@gmail.com
+
+pkgname='crystal-themes-fonts'
+pkgver=1.0.1
+pkgrel=1
+pkgdesc='themes and fonts for crystal-dots include terminal and themes for it'
+arch=('any')
+url='https://github.com/crystalforceix/crystal-dots'
+license=('GPL-3.0-only')
+depends=('kitty'
+ 	)
+optdepends=('spotify: music player'
+            'vscode: code editor'
+            'zen-browser: web browser'
+            'todoist-appimage: todo manager'
+            'uwsm: uwsm session'
+            'gnome-keyring: keyring daemon'
+            'polkit-gnome: gnome polkit client')
+
