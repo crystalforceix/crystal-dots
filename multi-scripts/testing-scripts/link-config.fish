@@ -58,3 +58,21 @@ if confirm-overwrite $config/quickshell
     log 'Installing quickshell configs...'
     ln -s ./../crystal-dots/.config/quickshell $config/quickshell
 end
+
+# Kitty
+if confirm-overwrite $config/kitty
+    log 'Installing kitty config...'
+    ln -s ./../crystal-dots/.config/kitty $config/kitty
+end
+
+# Fish shell
+if confirm-overwrite $config/fish
+    log 'Installing fish shell config...'
+    ln -s ./../crystal-dots/.config/fish $config/fish
+end
+
+# Posh themes
+if confirm-overwrite $config/terminal-posh-themes
+    log 'Installing posh themes config...'
+    ln -s ./../crystal-dots/.config/terminal-posh-themes $config/terminal-posh-themes
+end

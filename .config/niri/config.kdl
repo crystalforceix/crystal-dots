@@ -66,7 +66,7 @@ output "eDP-1" {
     mode "1920x1080@60.0"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
-    scale 1
+    scale 1.25
 
     // Transform allows to rotate the output counter-clockwise, valid values are:
     // normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
@@ -91,7 +91,7 @@ output "HDMI-A-1" {
     
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 8
+    gaps 20
 
 
     center-focused-column "never"

@@ -1,1 +1,0 @@
-package: niri quickshell-git
