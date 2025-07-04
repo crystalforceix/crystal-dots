@@ -47,6 +47,32 @@ function confirm-overwrite -a path
     return 0
 end
 
+# Install yay if not already installed
+if ! pacman -Q yay &> /dev/null
+    log 'Yay not installed. Installing...'
+
+    # Install
+    sudo pacman -S --needed git base-devel $noconfirm
+    cd /tmp
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd ..
+    rm -rf yay
+
+    # Setup
+    yay -Y --gendb
+    yay -Y --devel --save
+end
+
+# Install crystal-clients package in aur-packages-stored folder.
+log 'Installing crystal-clients package in aur-packages-stored folder...'
+yay -Bi ./../../aur-packages-stored/crystal-clients $noconfirm
+
+# Install crystal-themes-fonts package in aur-packages-stored folder.
+log 'Installing crystal-themes-fonts package in aur-packages-stored folder...'
+yay -Bi ./../../aur-packages-stored/crystal-themes-fonts/ $noconfirm
+
 # Niri
 if confirm-overwrite $config/niri
     log 'Installing niri configs...'
