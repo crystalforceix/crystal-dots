@@ -308,8 +308,8 @@ binds {
     XF86AudioMicMute     allow-when-locked=true { spawn "pamixer" "--default-source" "--toggle-mute"; }
 
     // Brightness controller
-    XF86MonBrightnessUp allow-when-locked=true {spawn "~/.config/niri/dunstscripts/brightness" "up"; }
-    XF86MonBrightnessDown allow-when-locked=true {spawn "~/.config/niri/dunstscripts/brightness" "down"; }
+    XF86MonBrightnessUp allow-when-locked=true {spawn "brightnessctl" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true {spawn "brightnessctl" "set" "10%-"; }
 
     // Music controller
     Mod+Shift+P allow-when-locked=true { spawn "bash" "-c" "exec ~/.config/niri/scripts/musiccontroller.sh"; }
