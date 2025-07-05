@@ -1,0 +1,3 @@
+import qtQuick
+import Quickshell
+
