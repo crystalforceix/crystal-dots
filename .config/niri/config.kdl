@@ -1,6 +1,7 @@
 // --#*Startup program*#--
 
     spawn-at-startup "xwayland-satellite"
+    spawn-at-startup "quickshell"
 // --#*Input keyboard*#--
 
 input {
