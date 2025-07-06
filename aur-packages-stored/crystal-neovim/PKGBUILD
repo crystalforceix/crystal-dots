@@ -1,0 +1,22 @@
+# crystal-neovim
+
+# Maintainer: crystalforceix@gmail.com
+
+pkgname='crystal-neovim'
+pkgver=1.0
+pkgrel=1
+pkgdesc='neovim stuff and dependancy'
+arch=('any')
+url='https://github.com/crystalforceix/crystal-dots'
+license=('GPL-3.0-only')
+depends=( 'neovim' 'make' 'unzip' 'gcc' 'ripgrep'
+	  'fd' 'lua-language-server' 'stylua'
+ 	)
+optdepends=('spotify: music player'
+            'vscode: code editor'
+            'zen-browser: web browser'
+            'todoist-appimage: todo manager'
+            'uwsm: uwsm session'
+            'gnome-keyring: keyring daemon'
+            'polkit-gnome: gnome polkit client')
+
