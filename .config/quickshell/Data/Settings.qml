@@ -31,7 +31,7 @@ Singleton {
                     settings.useFahrenheit = content.useFahrenheit ?? false
                     settings.displayTime = content.displayTime ?? 6000
                     settings.videoPath = content.videoPath ?? "~/Videos/"
-                    settings.wallpaperDirectory = content.wallpaperDirectory ?? "/home/lysec/nixos/assets/wallpapers/"
+                    settings.wallpaperDirectory = content.wallpaperDirectory ?? "/home/anhbaphu/crystal-dots/wallpapers/"
                     settings.lastWallpaperPath = content.lastWallpaperPath ?? ""
                     settings.customDarkAccent = content.customDarkAccent ?? "#be95ff"
                     settings.customLightAccent = content.customLightAccent ?? "#8a3ffc"
@@ -68,7 +68,7 @@ Singleton {
     property var ignoredApps: []  // Apps to ignore notifications from (case-insensitive)
     property int historyLimit: 25  // Notification history limit
     property string videoPath: "~/Videos/"
-    property string wallpaperDirectory: "/home/lysec/nixos/assets/wallpapers/"
+    property string wallpaperDirectory: "/home/anhbaphu/crystal-dots/wallpapers"
     property string lastWallpaperPath: ""
     property string customDarkAccent: "#be95ff"
     property string customLightAccent: "#8a3ffc"

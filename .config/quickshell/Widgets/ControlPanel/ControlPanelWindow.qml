@@ -32,12 +32,11 @@ PanelWindow {
     margins.left: (screen ? screen.width / 2 - 400 : 0)  // Centered
     margins.right: (screen ? screen.width / 2 - 400 : 0)
     implicitWidth: 640
-    implicitHeight: isShown ? 400 : 8  // Expand/collapse animation
+    implicitHeight: isShown ? 400 : 50  // Expand/collapse animation
     
     Behavior on implicitHeight {
         NumberAnimation {
-            duration: 200
-            easing.type: Easing.OutCubic
+		duration: 25
         }
     }
     exclusiveZone: (panelContent && panelContent.textInputFocused) ? -1 : 0
@@ -73,12 +72,11 @@ PanelWindow {
         anchors.topMargin: 8  // Trigger area space
         anchors.horizontalCenter: parent.horizontalCenter
         visible: isShown
-        opacity: isShown ? 1.0 : 0.0
+        opacity: isShown ? 1.1 : 1.1
         
         Behavior on opacity {
             NumberAnimation {
-                duration: 150
-                easing.type: Easing.OutCubic
+                duration: 0
             }
         }
         

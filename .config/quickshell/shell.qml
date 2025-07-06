@@ -61,11 +61,9 @@ ShellRoot {
         weatherService.loadWeather()
         
         // Connect MatugenService to the Matugen theme
-        Data.ThemeManager.matugen.setMatugenService(matugenService)
-        console.log("MatugenService connected to Matugen theme")
+        // Data.ThemeManager.matugen.setMatugenService(matugenService)
+        // console.log("MatugenService connected to Matugen theme")
         
-        // Register service with MatugenManager for global access
-        Data.MatugenManager.setService(matugenService)
     }
 
     PwObjectTracker {
