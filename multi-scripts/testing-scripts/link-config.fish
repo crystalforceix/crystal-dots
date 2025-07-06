@@ -73,6 +73,10 @@ yay -Bi ./../../aur-packages-stored/crystal-clients $noconfirm
 log 'Installing crystal-themes-fonts package in aur-packages-stored folder...'
 yay -Bi ./../../aur-packages-stored/crystal-themes-fonts/ $noconfirm
 
+# Install crystal-neovim package in aur-packages-stored folder.
+log 'Installing crystal-neovim package in aur-packages-stored folder...'
+yay -Bi ./../../aur-packages-stored/crystal-neovim/ $noconfirm
+
 # Niri
 if confirm-overwrite $config/niri
     log 'Installing niri configs...'
@@ -101,4 +105,10 @@ end
 if confirm-overwrite $config/terminal-posh-themes
     log 'Installing posh themes config...'
     ln -s ./../crystal-dots/.config/terminal-posh-themes $config/terminal-posh-themes
+end
+
+# Neovim
+if confirm-overwrite $config/nvim
+    log 'Installing neovim config...'
+    ln -s ./../crystal-dots/.config/nvim $config/nvim
 end
