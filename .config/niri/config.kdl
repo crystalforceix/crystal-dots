@@ -93,7 +93,7 @@ output "HDMI-A-1" {
 layout {
     // Set gaps around windows in logical pixels.
     gaps 20
-
+    background-color "transparent"
 
     center-focused-column "never"
 
@@ -501,4 +501,17 @@ hotkey-overlay {
     lid-open { spawn "~/.config/niri/scripts/gtklock.sh"; }
     tablet-mode-on { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled true"; }
     tablet-mode-off { spawn "bash" "-c" "gsettings set org.gnome.desktop.a11y.applications screen-keyboard-enabled false"; }
+}
+
+layer-rule {
+    match namespace="^wallpaper$"
+    
+    place-within-backdrop true
+}
+overview {
+    workspace-shadow {
+        off
+    }
+    
+    backdrop-color "#777777"
 }
