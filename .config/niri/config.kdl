@@ -92,7 +92,7 @@ output "HDMI-A-1" {
     
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 20
+    gaps 10
     background-color "transparent"
 
     center-focused-column "never"

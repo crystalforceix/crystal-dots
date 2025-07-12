@@ -6,13 +6,13 @@ Shape {
     id: root
     
     property string position: "topleft"  // Corner position: topleft/topright/bottomleft/bottomright
-    property real size: 1.0              // Scale multiplier for entire corner
+    property real size: 0              // Scale multiplier for entire corner
     property int concaveWidth: 100 * size
     property int concaveHeight: 60 * size
     property int offsetX: -20
     property int offsetY: -20
     property color fillColor: Theme.accentPrimary
-    property int arcRadius: 20 * size
+    property int arcRadius:  size
 
     property var modelData: null
     
@@ -61,26 +61,26 @@ Shape {
     layer.enabled: true
     layer.samples: 4
 
-    ShapePath {
-        strokeWidth: 0
-        fillColor: root.fillColor
-        strokeColor: root.fillColor
-
-        startX: root._startX
-        startY: root._startY
-
-        PathLine { 
-            x: root._lineX
-            y: root._lineY 
-        }
-
-        PathArc {
-            x: root._arcX
-            y: root._arcY
-            radiusX: root.arcRadius
-            radiusY: root.arcRadius
-            useLargeArc: false
-            direction: root._arcDirection
-        }
-    }
+    // ShapePath {
+    //    strokeWidth: 0
+    //    fillColor: root.fillColor
+    //    strokeColor: root.fillColor
+    //
+    //    startX: root._startX
+    //  startY: root._startY
+    //
+    //    PathLine { 
+    //        x: root._lineX
+    //      y: root._lineY 
+    //  }
+    //
+    //  PathArc {
+    //      x: root._arcX
+    //      y: root._arcY
+    //      radiusX: root.arcRadius
+    //      radiusY: root.arcRadius
+    //      useLargeArc: false
+    //      direction: root._arcDirection
+    //  }
+    // }
 }
