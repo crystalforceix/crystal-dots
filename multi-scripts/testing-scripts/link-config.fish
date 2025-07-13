@@ -77,22 +77,22 @@ yay -Bi ./../../aur-packages-stored/crystal-themes-fonts/ $noconfirm
 log 'Installing crystal-neovim package in aur-packages-stored folder...'
 yay -Bi ./../../aur-packages-stored/crystal-neovim/ $noconfirm
 
-# Niri
-if confirm-overwrite $config/niri
-    log 'Installing niri configs...'
-    ln -s ./../crystal-dots/.config/niri $config/niri
+# MaomaoWM
+if confirm-overwrite $config/maomao
+    log 'Installing maomao configs...'
+    ln -s ./../crystal-dots/.config/maomao $config/maomao
 end
 
-# Quickshell
-if confirm-overwrite $config/quickshell
-    log 'Installing quickshell configs...'
-    ln -s ./../crystal-dots/.config/quickshell $config/quickshell
+# Rofi
+if confirm-overwrite $config/rofi
+    log 'Installing rofi configs...'
+    ln -s ./../crystal-dots/.config/rofi $config/rofi
 end
 
-# Kitty
-if confirm-overwrite $config/kitty
-    log 'Installing kitty config...'
-    ln -s ./../crystal-dots/.config/kitty $config/kitty
+# Foot
+if confirm-overwrite $config/foot
+    log 'Installing foot config...'
+    ln -s ./../crystal-dots/.config/foot $config/foot
 end
 
 # Fish shell
@@ -111,4 +111,28 @@ end
 if confirm-overwrite $config/nvim
     log 'Installing neovim config...'
     ln -s ./../crystal-dots/.config/nvim $config/nvim
+end
+
+# Wlogout
+if confirm-overwrite $config/wlogout
+    log 'Installing wlogout config...'
+    ln -s ./../crystal-dots/.config/wlogout $config/wlogout
+end
+
+# Lavalauncher
+if confirm-overwrite $config/lavalauncher
+    log 'Installing lavalauncher config...'
+    ln -s ./../crystal-dots/.config/lavalauncher $config/lavalauncher
+end
+
+# Swaync
+if confirm-overwrite $config/swaync
+    log 'Installing swaync config...'
+    ln -s ./../crystal-dots/.config/swaync $config/swaync
+end
+
+# Waybar
+if confirm-overwrite $config/waybar
+    log 'Installing waybar config'
+    ln -s ./../crystal-dots/.config/waybar $config/waybar
 end

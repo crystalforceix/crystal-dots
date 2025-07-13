@@ -9,9 +9,10 @@ pkgdesc='a main packages for dotfiles also niri and quickshell'
 arch=('any')
 url='https://github.com/crystalforceix/crystal-dots'
 license=('GPL-3.0-only')
-depends=('niri' 'quickshell-git' 'xwayland-satellite'
-	 'fuzzel' 'brightnessctl' 'pamixer' 'pavucontrol'
-	 'bluez' 'bluez-utils' 'blueman'
+depends=('maomaowm-git' 'rofi-wayland' 'foot' 'xdg-desktop-portal-wlr' 'swaybg' 'waybar' 'wl-clip-persist'
+            'cliphist' 'wl-clipboard' 'wlsunset' 'xfce-polkit' 'swaync' 'pamixer' 'lavalauncher-mao-git' 'wlr-dpms'
+            'sway-audio-idle-inhibit-git' 'swayidle' 'dimland-git' 'brightnessctl' 'swayosd' 'wlr-randr grim slurp'
+            'satty' 'swaylock-effects-git' 'wlogout'
  	)
 optdepends=('spotify: music player'
             'vscode: code editor'
