@@ -4,7 +4,7 @@ import QtQuick
 
 QtObject {
     // Backgrounds
-    readonly property color backgroundPrimary: "#0C0D11"     // Deep indigo-black
+    readonly property color backgroundPrimary: "#11111b"     // Deep indigo-black
     readonly property color backgroundSecondary: "#151720"   // Slightly lifted dark
     readonly property color backgroundTertiary: "#1D202B"    // Soft contrast surface
 
@@ -13,7 +13,7 @@ QtObject {
     readonly property color surfaceVariant: "#2A2D3A"        // Lightly elevated
 
     // Text Colors
-    readonly property color textPrimary: "#CACEE2"           // Gentle off-white
+    readonly property color textPrimary: "#F3DEFF"           // Gentle off-white
     readonly property color textSecondary: "#B7BBD0"         // Muted lavender-blue
     readonly property color textDisabled: "#6B718A"          // Dimmed blue-gray
 

@@ -324,14 +324,14 @@ binds {
     Mod+Shift+E { spawn "~/.config/niri/scripts/wlogout.sh"; }
 
     // Lockscreen
-    Mod+L { spawn "~/.config/niri/scripts/gtklock.sh"; }
+    Mod+L { spawn "qs" "ipc" "call" "globalIPC" "toggleLock"; }
 
     // Suspend keys
     Mod+Shift+L { spawn "~/.config/niri/scripts/suspendservice.sh"; }
 
     // Keybinds of app
     Mod+E { spawn "nautilus"; }
-    Mod+Alt+Slash { spawn "fuzzel"; }
+    Mod+Alt+Slash { spawn "qs" "ipc" "call" "globalIPC" "toggleLauncher"; }
     Mod+Return { spawn "kitty"; }
 
     // Clipboard and emojis
