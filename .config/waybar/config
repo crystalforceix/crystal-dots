@@ -168,7 +168,7 @@
     "custom/power": {
         "format": "",
         "tooltip": false,
-        "on-click": "wlogout -C ~/.config/maomao/wlogout/style.css -l  ~/.config/maomao/wlogout/layout  -b 6 --protocol layer-shell",
+        "on-click": "wlogout -b 6 --protocol layer-shell",
   		  "menu": "on-click-right",
   		  "menu-file": "~/.config/maomao/waybar/battery_menu.xml",
 		    "menu-actions": {
