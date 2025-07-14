@@ -5,15 +5,15 @@
       "alignment": "right",
       "segments": [
         {
-          "background": "#003543",
-          "foreground": "#ffffff",
+          "background": "#transparent",
+          "foreground": "#ddca9e",
           "style": "plain",
           "template": " \ue641 {{ .CurrentDate | date .Format }} ",
           "type": "time"
         },
         {
-          "background": "#83769c",
-          "foreground": "#ffffff",
+          "background": "transparent",
+          "foreground": "#ddca9e",
           "properties": {
             "always_enabled": true
           },
