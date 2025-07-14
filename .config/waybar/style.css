@@ -1,6 +1,6 @@
 * {
   border: none;
-  font-family: Maple Mono NF CN;
+  font-family: FiraCode Nerd Font;
   font-weight: 900;
   font-size: 18px;
   min-height: 0;
@@ -31,6 +31,7 @@ tooltip {
 #custom-playerctl,
 #clock,
 #battery,
+#power-profiles-daemon,
 #pulseaudio,
 #cpu,
 #temperature,
@@ -38,6 +39,7 @@ tooltip {
 #network,
 #workspaces,
 #tray,
+#mpris,
 #cava,
 #keyboard-state,
 #custom-notification,
@@ -188,6 +190,19 @@ tooltip {
   border-color: #c9b890;
   margin-right: 4px;
   margin-left: 4px;
+  padding-right: 8px;
+  padding-left: 9px;
+  padding-top: 2px;
+  color: #ddca9e;
+}
+#power-profiles-daemon {
+  background: rgba(40, 40, 40, 0.76);
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #c9b890;
+  margin-right: 4px;
+  margin-left: 0px;
   padding-right: 8px;
   padding-left: 9px;
   padding-top: 2px;
@@ -350,6 +365,34 @@ tooltip {
   border-radius: 4px 0px 0px 4px;
 }
 
+#mpris {
+  background: rgba(40, 40, 40, 0.76);
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #c9b890;
+  margin-right: 4px;
+  margin-left: 0px;
+  padding-right: 8px;
+  padding-left: 9px;
+  padding-top: 2px;
+  color: #ddca9e;
+}
+
+#battery {
+  background: rgba(40, 40, 40, 0.76);
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #c9b890;
+  margin-right: 4px;
+  margin-left: 0px;
+  padding-right: 8px;
+  padding-left: 9px;
+  padding-top: 2px;
+  color: #ddca9e;
+}
+
 #pulseaudio {
   background: rgba(40, 40, 40, 0.76);
   color: #ddca9e;
@@ -395,16 +438,6 @@ tooltip {
   margin-right: 4px;
 }
 
-#battery {
-  background: rgba(40, 40, 40, 0.76);
-  color: #ddca9e;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #c9b890;
-  border-radius: 0px;
-  border-right: 0px;
-  border-left: 0px;
-}
 
 #custom-weather {
   background: rgba(40, 40, 40, 0.76);

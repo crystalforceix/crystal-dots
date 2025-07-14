@@ -14,7 +14,9 @@
         "dwl/window"
     ],
     "modules-right": [
+        "mpris",
         "tray",
+        "group/batterythings",
         "network",
         "pulseaudio",
         "cpu",
@@ -36,8 +38,69 @@
       // "tag-labels": ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
     },
     "dwl/window": {
-        "format": "{}"
+        "format": "{}",
+        "max-length": 30,
+	    "tooltip": false
     },
+
+       "group/batterythings": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "battery",
+            "power-profiles-daemon",
+        ]
+    },
+
+    "mpris": {
+        //"interval": 5,
+	    "dynamic-order": ["artist", "title"],
+        "dynamic-len": 30,
+        "format": "{player_icon} {dynamic}",
+        "format-paused": "{status_icon} {dynamic}",
+        "player-icons": {
+            "default": ""
+        },
+        "status-icons": {
+            "paused": ""
+        },
+        "on-double-click-right": "playerctl next",
+        "on-scroll-down": "playerctl previous",
+    // "ignored-players": ["firefox"]
+    },
+
+    "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": " {capacity}%",
+    "format-discharging": "{icon} {capacity}%",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "interval": 5,
+    "tooltip": false
+  },
+    "power-profiles-daemon": {
+        "format": " {icon} ",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+
     "custom/notification": {
       "tooltip": false,
       "format": "{icon}",
@@ -120,15 +183,22 @@
       "icon-size": 21,
       "spacing": 10
     },
-    "network": {
-      "interval": 2,
-      "format-wifi": "{essid} ({signalStrength}%)\uf1eb",
-      "format-ethernet": "󰈀 {ifname}",
-      "format-linked": "\uf059 No IP ({ifname})",
-      "format-disconnected": "\uf071 Disconnected",
-      "tooltip-format": "{ifname} {ipaddr}/{cidr} via {gwaddr}",
-      "format-alt": "↓{bandwidthDownBytes} ↑{bandwidthUpBytes}"
-    },
+
+    
+  "network": {
+    "format-wifi": "{essid} 󰤪 ",
+    "format-ethernet": "󰈀  {bandwidthUpBits} 󰈀  {bandwidthDownBits}",
+    "tooltip-format": "Network",
+    "tooltip-format-wifi": "{ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": "{ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected.",
+    "format-linked": "󰈁",
+    "format-disconnected": "  Disconnected!",
+    "interval": 2,
+    "on-click": "foot -e nmtui"
+  },
+
+
     "clock": {
       "format": "{:%H:%M} ",
       "format-alt": "{:%A, %b %d} ",
@@ -169,13 +239,7 @@
         "format": "",
         "tooltip": false,
         "on-click": "wlogout -b 6 --protocol layer-shell",
-  		  "menu": "on-click-right",
-  		  "menu-file": "~/.config/maomao/waybar/battery_menu.xml",
-		    "menu-actions": {
-			   "performance": "bash ~/.config/maomao/scripts/power-profile  --performance",
-			   "schedutil": "bash ~/.config/maomao/scripts/power-profile --schedutil",
         },
-    },
     "pulseaudio#microphone": {
         "format": "{format_source}",
         "format-source": " {volume}%",
@@ -225,16 +289,6 @@
         "actions": {
                    "on-click-right": "mode"
         }
-    },
-    "battery": {
-        "bat": "hidpp_battery_0",
-        "interval": 1800,
-        "states": {
-                   "warning": 20,
-                   "critical": 10
-        },
-        "format": "{icon}",
-        "format-icons": ["", "", "", "", ""],
-        "max-length": 25
     }
 }
+
