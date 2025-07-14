@@ -133,6 +133,12 @@ end
 
 # Waybar
 if confirm-overwrite $config/waybar
-    log 'Installing waybar config'
+    log 'Installing waybar config...'
     ln -s ./../crystal-dots/.config/waybar $config/waybar
+end
+
+# Fastfetch config
+if confirm-overwrite $config/fastfetch
+    log 'Installing fastfetch config...'
+    ln -s ./../crystal-dots/.config/fastfetch $config/fastfetch
 end
