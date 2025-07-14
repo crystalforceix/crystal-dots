@@ -1,6 +1,7 @@
 * {
   border: none;
   font-family: FiraCode Nerd Font;
+  font-family: "Symbols Nerd Font";
   font-weight: 900;
   font-size: 18px;
   min-height: 0;
@@ -183,6 +184,7 @@ tooltip {
 }
 
 #tray {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   border-radius: 4px;
   border-width: 2px;
@@ -210,6 +212,7 @@ tooltip {
 }
 
 #network {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   border-radius: 4px;
   border-width: 2px;
@@ -356,6 +359,7 @@ tooltip {
 }
 
 #clock {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   color: #ddca9e;
   border-width: 2px;
@@ -366,6 +370,7 @@ tooltip {
 }
 
 #mpris {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   border-radius: 4px;
   border-width: 2px;
@@ -380,6 +385,22 @@ tooltip {
 }
 
 #battery {
+  font-family: "Symbols Nerd Font";
+  background: rgba(40, 40, 40, 0.76);
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #c9b890;
+  margin-right: 4px;
+  margin-left: 0px;
+  padding-right: 8px;
+  padding-left: 9px;
+  padding-top: 2px;
+  color: #ddca9e;
+}
+
+#power-profiles-daemon {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   border-radius: 4px;
   border-width: 2px;
@@ -394,6 +415,7 @@ tooltip {
 }
 
 #pulseaudio {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   color: #ddca9e;
   border-width: 2px;
@@ -406,6 +428,7 @@ tooltip {
 }
 
 #cpu {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   color: #ddca9e;
   border-width: 2px;
@@ -428,6 +451,7 @@ tooltip {
 }
 
 #backlight {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   color: #ddca9e;
   border-width: 2px;
@@ -453,6 +477,7 @@ tooltip {
 }
 
 #custom-notification {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   color: #ddca9e;
   border-width: 2px;
@@ -465,6 +490,7 @@ tooltip {
 }
 
 #custom-power {
+  font-family: "Symbols Nerd Font";
   background: rgba(40, 40, 40, 0.76);
   color: #ddca9e;
   border-width: 2px;
