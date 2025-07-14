@@ -20,7 +20,6 @@
         "network",
         "pulseaudio",
         "cpu",
-        "temperature",
         "backlight",
         "clock",
         "custom/notification",
