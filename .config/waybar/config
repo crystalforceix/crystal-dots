@@ -37,6 +37,7 @@
       // "tag-labels": ["一", "二", "三", "四", "五", "六", "七", "八", "九"]
     },
     "dwl/window": {
+    	"swap-icon-label": true,
         "format": "{}",
         "max-length": 30,
 	    "tooltip": false
