@@ -145,13 +145,13 @@ if confirm-overwrite $config/fastfetch
 end
 
 # GTK theme config
-if confirm-overwrite $config/../.themes
+if confirm-overwrite ~/.themes
     log 'Installing GTK themes...'
     ln -s ~/crystal-dots/.themes ~/.themes
 end
 
 # Mouse icon config
-if confirm-overwrite $config/../.icons
+if confirm-overwrite ~/.icons
     log 'Installing Mouse icons themes...'
     ln -s ~/crystal-dots/.icons ~/.icons
 end
