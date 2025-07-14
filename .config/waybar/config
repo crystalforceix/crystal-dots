@@ -199,8 +199,8 @@
 
 
     "clock": {
-      "format": "{:%H:%M}  <big></big>",
-      "format-alt": "{:%A, %b %d} ",
+      "format": "{:%H:%M} <big> </big>",
+      "format-alt": "{:%A, %b %d} <big> </big>",
       "tooltip-format": "{:%Y}",
       "calendar": {
         "mode": "year",
