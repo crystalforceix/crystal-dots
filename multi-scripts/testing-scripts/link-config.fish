@@ -67,7 +67,7 @@ end
 
 # Install crystal-clients package in aur-packages-stored folder.
 log 'Installing dependancy packages for maomaowm...'
-yay -S maomaowm-git rofi-wayland foot xdg-desktop-portal-wlr swaybg waybar wl-clip-persist cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer lavalauncher-mao-git wlr-dpms sway-audio-idle-inhibit-git swayidle dimland-git brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects-git wlogout $noconfirm
+yay -S maomaowm-git playerctl rofi-wayland foot xdg-desktop-portal-wlr swaybg waybar wl-clip-persist cliphist wl-clipboard wlsunset xfce-polkit swaync pamixer lavalauncher-mao-git wlr-dpms sway-audio-idle-inhibit-git swayidle dimland-git brightnessctl swayosd wlr-randr grim slurp satty swaylock-effects-git wlogout $noconfirm
 
 # Install crystal-themes-fonts package in aur-packages-stored folder.
 log 'Installing crystal-themes-fonts package in aur-packages-stored folder...'
