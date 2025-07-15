@@ -5,7 +5,7 @@
 title-text: ""
 desktop-image: "background.jpg"
 desktop-color: "#242424"
-terminal-font: "Terminus Regular 14"
+terminal-font: "Terminus Regular 18"
 terminal-box: "terminal_box_*.png"
 terminal-left: "0"
 terminal-top: "0"
@@ -19,7 +19,7 @@ terminal-border: "0"
   top = 12%
   width = 34%
   height = 64%
-  item_font = "Unifont Regular 16"
+  item_font = "Terminus Regular 18"
   item_color = "#efefef"
   selected_item_color = "#ffffff"
   icon_width = 32
@@ -52,5 +52,5 @@ terminal-border: "0"
   id = "__timeout__"
   text = "Booting in %d seconds"
   color = "#ffffff"
-  font = "Unifont Regular 16"
+  font = "Terminus Regular 18"
 }
