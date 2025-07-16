@@ -167,7 +167,8 @@
       "format-icons": ["󰖔", "󰖨"],
       "on-scroll-up": "brightnessctl set +1%",
       "on-scroll-down": "brightnessctl set 1%-",
-      "smooth-scrolling-threshold": 1
+      "smooth-scrolling-threshold": 1,
+      "on-click": "bash -c ~/crystal-dots/.config/maomao/scripts/toggle_wlsunset.sh",
     },
     "idle_inhibitor": {
         "tooltip": false,
