@@ -49,6 +49,18 @@ apply_theme () {
         else
             echo -e "\n[Theme]\nCurrent=silent" | sudo tee -a /etc/sddm.conf
         fi
+        
+        if grep -Pzq '\[Wayland]\nEnableHiDPI=' /etc/sddm.conf; then
+            sudo sed -i '/^\[Wayland\]$/{N;s/\(EnableHiDPI=\).*/\1true/;}'
+        else
+            echo -e "\n[Wayland]\nEnableHiDPI=true" | sudo tee -a /etc/sddm.conf
+        fi
+
+        if grep -Pzq '\[X11]\nEnableHiDPI=' /etc/sddm.conf; then
+            sudo sed -i '/^\[X11\]$/{N;s/\(EnableHiDPI=\).*/\1true/;}'
+        else
+            echo -e "\n[X11]\nEnableHiDPI=true" | sudo tee -a /etc/sddm.conf
+        fi
 
         if ! grep -Pzq 'InputMethod=qtvirtualkeyboard' /etc/sddm.conf; then
             echo -e "\n[General]\nInputMethod=qtvirtualkeyboard" | sudo tee -a /etc/sddm.conf
@@ -59,9 +71,11 @@ apply_theme () {
             echo -e "\n[General]\nGreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard,QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192" | sudo tee -a /etc/sddm.conf
         fi
     else
+        echo -e "[Wayland]\nEnableHiDPI=true" | sudo -tee -a /etc/sddm.conf
+        echo -e "[X11]\nEnableHiDPI=true" | sudo -tee -a /etc/sddm.conf
         echo -e "[Theme]\nCurrent=silent" | sudo tee -a /etc/sddm.conf
         echo -e "\n[General]\nInputMethod=qtvirtualkeyboard" | sudo tee -a /etc/sddm.conf
-        echo -e "GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard" | sudo tee -a /etc/sddm.conf
+        echo -e "GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard,QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192" | sudo tee -a /etc/sddm.conf
     fi
 }
 
