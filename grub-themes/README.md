@@ -2,7 +2,7 @@
     <h1>Grub-Themes(just stored btw)</h1>
 </div>
 
-# Picture
+# Themes Show
 ![](./left-light-1080p/preview.jpg)
 
 # Installations
