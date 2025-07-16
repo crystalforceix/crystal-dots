@@ -14,7 +14,7 @@ sudo bash ./install.sh
 ```
 
 # Usage
-- Change avatar themes
-'''
-./change_avatar.sh "username" "path to image"
-'''
+- Change avatar themes: 
+''
+./change_avatar.sh 'username' 'path to image'
+''
