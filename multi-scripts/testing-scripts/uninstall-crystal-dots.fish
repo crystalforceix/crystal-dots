@@ -1,5 +1,21 @@
 #!/usr/bin/env fish
 
+# Helper funcs
+function _out -a colour text
+    set_color $colour
+    # Pass arguments other than text to echo
+    echo $argv[3..] -- ":: $text"
+    set_color normal
+end
+
+function log -a text
+    _out cyan $text $argv[2..]
+end
+
+function input -a text
+    _out blue $text $argv[2..]
+end
+
 # Unlink crystal-dots folder
 log 'Unlinking crystal-dots configs'
 cd ~/crystal-dots/multi-scripts/testing-scripts/ && ./unlink-config.fish
