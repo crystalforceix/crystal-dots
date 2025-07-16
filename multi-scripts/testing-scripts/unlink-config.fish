@@ -28,8 +28,7 @@ function confirm-overwrite -a path
         # No prompt if noconfirm
         if set -q noconfirm
             input "$path already exists. Do you want unlink it? [Y/n]"
-            log 'Unlinking...'
-            rm -rf $path
+            unlink $path
         else
             # Prompt user
             read -l -p "input '$path already exists. unlink it? [Y/n] ' -n" confirm || exit 1
@@ -38,8 +37,7 @@ function confirm-overwrite -a path
                 log 'Skipping...'
                 return 1
             else
-                log 'Unlinking...'
-                rm -rf $path
+                unlink $path
             end
         end
     end
@@ -51,77 +49,64 @@ end
 # MaomaoWM
 if confirm-overwrite $config/maomao
     log 'Unlinking maomao config...'
-    unlink $config/maomao
 end
 
 # Rofi
 if confirm-overwrite $config/rofi
     log 'Unlinking rofi configs...'
-    unlink $config/rofi
 end
 
 # Foot
 if confirm-overwrite $config/foot
     log 'Unlinking foot config...'
-    unlink $config/foot
 end
 
 # Fish shell
 if confirm-overwrite $config/fish
     log 'Unlinking fish shell config...'
-    unlink $config/fish
 end
 
 # Posh themes
 if confirm-overwrite $config/terminal-posh-themes
     log 'Unlinking posh themes config...'
-    unlink $config/terminal-posh-themes
 end
 
 # Neovim
 if confirm-overwrite $config/nvim
     log 'Unlinking neovim config...'
-    unlink $config/nvim
 end
 
 # Wlogout
 if confirm-overwrite $config/wlogout
     log 'Unlinking wlogout config...'
-    unlink $config/wlogout
 end
 
 # Lavalauncher
 if confirm-overwrite $config/lavalauncher
     log 'Unlinking lavalauncher config...'
-    unlink $config/lavalauncher
 end
 
 # Swaync
 if confirm-overwrite $config/swaync
     log 'Unlinking swaync config...'
-    unlink $config/swaync
 end
 
 # Waybar
 if confirm-overwrite $config/waybar
     log 'Unlinking waybar config...'
-    unlink $config/waybar
 end
 
 # Fastfetch config
 if confirm-overwrite $config/fastfetch
     log 'Unlinking fastfetch config...'
-    unlink $config/fastfetch
 end
 
 # GTK theme config
 if confirm-overwrite ~/.themes
     log 'Unliking GTK themes...'
-    unlink ~/.themes
 end
 
 # Mouse icon config
 if confirm-overwrite ~/.icons
     log 'Unlinking Mouse icons themes...'
-    unlink ~/.icons
 end
