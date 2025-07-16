@@ -1,0 +1,22 @@
+pkgbase = crystal-themes-fonts
+	pkgdesc = themes and fonts for crystal-dots include terminal and themes for it
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://github.com/crystalforceix/crystal-dots
+	arch = any
+	license = GPL-3.0-only
+	depends = fish
+	depends = oh-my-posh-bin
+	depends = papirus-icon-theme
+	depends = ttf-nerd-fonts-symbols
+	depends = ttf-material-symbols-variable-git
+	depends = ttf-firacode-nerd
+	optdepends = spotify: music player
+	optdepends = vscode: code editor
+	optdepends = zen-browser: web browser
+	optdepends = todoist-appimage: todo manager
+	optdepends = uwsm: uwsm session
+	optdepends = gnome-keyring: keyring daemon
+	optdepends = polkit-gnome: gnome polkit client
+
+pkgname = crystal-themes-fonts
