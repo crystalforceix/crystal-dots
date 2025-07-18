@@ -1,0 +1,25 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "tuzi mian.moc3",
+		"Textures": [
+			"tuzi mian.4096/texture_00.png",
+			"tuzi mian.4096/texture_01.png",
+			"tuzi mian.4096/texture_02.png"
+		],
+		"Physics": "tuzi mian.physics3.json",
+		"DisplayInfo": "tuzi mian.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		}
+	]
+}
