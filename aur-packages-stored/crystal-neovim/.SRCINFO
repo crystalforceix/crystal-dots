@@ -1,0 +1,24 @@
+pkgbase = crystal-neovim
+	pkgdesc = neovim stuff and dependancy
+	pkgver = 1.0
+	pkgrel = 1
+	url = https://github.com/crystalforceix/crystal-dots
+	arch = any
+	license = GPL-3.0-only
+	depends = neovim
+	depends = make
+	depends = unzip
+	depends = gcc
+	depends = ripgrep
+	depends = fd
+	depends = lua-language-server
+	depends = stylua
+	optdepends = spotify: music player
+	optdepends = vscode: code editor
+	optdepends = zen-browser: web browser
+	optdepends = todoist-appimage: todo manager
+	optdepends = uwsm: uwsm session
+	optdepends = gnome-keyring: keyring daemon
+	optdepends = polkit-gnome: gnome polkit client
+
+pkgname = crystal-neovim

@@ -1,0 +1,11 @@
+    pipewire
+    pipewire-alsa
+    pipewire-pulse
+    wireplumber
+    gst-plugin-pipewire
+    easyeffects
+    calf
+    lsp-plugins
+    zam-plugins-lv2
+    mda.lv2
+    yelp
